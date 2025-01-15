@@ -16,17 +16,17 @@ console.log('#1. Приклад домашнього завдання з JavaScr
 let myNum = 10;
 console.log(myNum);
 
-let myStr = 'some string';
+const myStr = 'some string';
 console.log(myStr);
 
-let myBool = true;
+const myBool = true;
 console.log(myBool);
 
-let myArr = [1, 2, 3, 4, 5];
+const myArr = [1, 2, 3, 4, 5];
 console.log(myArr);
 
 
-let myObj = {
+const myObj = {
   first: 'First Name',
   last: 'Last Name',
 }
@@ -39,7 +39,7 @@ console.log(myObj)
  * Результат збережіть у змінній decimal2.
  */
 myNum = 123;
-let decimal2 = myNum.toFixed(2);
+ const decimal2 = myNum.toFixed(2);
 console.log(decimal2)
 /*
  * #3
@@ -49,14 +49,10 @@ console.log(decimal2)
  */
 
 let i = 2;
-i++;
-console.log(i);
-++i;
-console.log(i);
---i;
-console.log(i);
-i--;
-console.log(i);
+console.log(i++);
+console.log(++i);
+console.log(--i);
+console.log(i--);
 
 /*
  * #4
@@ -67,19 +63,20 @@ console.log(i);
  * У розрахунках можна використовувати раніше оголошену змінну myNum та/або числа.
  */
 
-let myTest = myNum += 20;
+let myTest = 20;
+myTest += 20;
 console.log(myTest);
 
-myTest = myNum -= 30;
+myTest -= 30;
 console.log(myTest);
 
-myTest = myNum *= 20;
+myTest  *= 20;
 console.log(myTest);
 
-myTest = myNum /= 20;
+myTest /= 20;
 console.log(myTest);
 
-myTest = myNum %=20;
+myTest %=20;
 console.log(myTest);
 
 /*
@@ -96,7 +93,7 @@ console.log(myPi);
 let myRound = Math.round(89.279);
 console.log(myRound);
 // випадкове число між 0..10 → myRandom
-let myRandom = Math.floor(Math.random() * 10);
+let myRandom = Math.floor(Math.random() * 11);
 console.log(myRandom);
 // 3 у 5 степені → myPow
 let myPow = Math.pow(3, 5);
@@ -127,7 +124,7 @@ console.log(strObj)
  */
 
 let isRamaPos = strObj.str.indexOf('рама');
-let isRama = isRamaPos !== -1;
+let isRama = strObj.str.includes('рама');
 
 console.log(isRamaPos);
 console.log(isRama)
@@ -145,7 +142,7 @@ console.log(isRama)
  */
 
 // strReplace
-let strReplace = strObj.str.replace('Мама мыла раму, рама мыла маму', 'Мама моет раму, Рама держит маму');
+let strReplace = strObj.str.replace('рама', 'Рама');
 console.log(strReplace)
 
  /* #9
