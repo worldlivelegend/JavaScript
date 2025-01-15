@@ -90,13 +90,13 @@ const myPi = Math.PI;
 console.log(myPi);
 
 // округлене значення числа 89.279 → myRound
-let myRound = Math.round(89.279);
+const myRound = Math.round(89.279);
 console.log(myRound);
 // випадкове число між 0..10 → myRandom
-let myRandom = Math.floor(Math.random() * 11);
+const myRandom = Math.floor(Math.random() * 11);
 console.log(myRandom);
 // 3 у 5 степені → myPow
-let myPow = Math.pow(3, 5);
+const myPow = Math.pow(3, 5);
 console.log(myPow);
 
 /*
@@ -106,7 +106,7 @@ console.log(myPow);
  * Присвойте ключу str рядок тексту "Мама мыла раму, рама мыла маму", ключу length встановіть довжину цього рядка.
  */
 
-let strObj = {
+const strObj = {
   str: 'Мама мыла раму, рама мыла маму',
   length: 'Мама мыла раму, рама мыла маму'.length
 };
@@ -123,8 +123,8 @@ console.log(strObj)
  * Результатом для isRama має бути буль true.
  */
 
-let isRamaPos = strObj.str.indexOf('рама');
-let isRama = strObj.str.includes('рама');
+const isRamaPos = strObj.str.indexOf('рама');
+const isRama = strObj.str.includes('рама');
 
 console.log(isRamaPos);
 console.log(isRama)
@@ -142,7 +142,7 @@ console.log(isRama)
  */
 
 // strReplace
-let strReplace = strObj.str.replace('рама', 'Рама');
+const strReplace = strObj.str.replace('рама', 'Рама');
 console.log(strReplace)
 
  /* #9
@@ -150,9 +150,9 @@ console.log(strReplace)
  * Преобразуйте текст 'some STRING' у верхній, потім у нижній регістри, результат відобразіть у консолі.
  */
 
-let someStr = 'some STRING';
+const someStr = 'some STRING';
 console.log(someStr);
-let upperStr = someStr.toUpperCase();
+const upperStr = someStr.toUpperCase();
 console.log(upperStr);
-let lowerStr = someStr.toLowerCase();
+const lowerStr = someStr.toLowerCase();
 console.log(lowerStr);
