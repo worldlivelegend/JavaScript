@@ -15,8 +15,11 @@
 */
 
 function getRandomInt(min, max) {
-  return 'your code here'
+  return Math.floor(Math.random() * ((max - min) + 1)) + min;
 }
+console.log(getRandomInt(1, 10)); // виводить випадкове число від 1 до 10
+console.log(getRandomInt(40, 50)); // виводить випадкове число від 40 до 50
+console.log(getRandomInt(1, 100)); // виводить випадкове число від 1 до 100
 
 /*
  Використовуйте `Math.floor`, а не `Math.round` для забезпечення рівномірного розподілення випадкових чисел.

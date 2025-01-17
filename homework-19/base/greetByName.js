@@ -13,6 +13,9 @@
  console.log(greet('Hello', 'Mary')) // Hello, Mary
 */
 
-function greetByName(msg, name) {
-  return 'your code here'
+function greet(msg, name) {
+  return `${msg}, ${name}`;
 }
+console.log(greet('Hi', 'John')) // Hi, John
+console.log(greet('Hey', 'Bob')) // Hey, Bob
+console.log(greet('Hello', 'Mary')) // Hello, Mary
