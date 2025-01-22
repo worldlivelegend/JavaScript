@@ -6,9 +6,11 @@ const userObj = {
   'firstName' : 'Jenya',
   'lastName' : 'Volkov',
   'age' : '21',
-}
-console.log(userObj)
 
+  fullName: function(){
+    return `${this.firstName} ${this.lastName}`
+  }
+}
 /*
  * #2
  *
@@ -21,11 +23,8 @@ console.log(userObj)
  */
 
 // console.log(userObj.fullName()) // John Smith
-
-function fullName() {
-  return `${userObj.firstName} ${userObj.lastName}`
-}
-console.log(fullName()) // John Smith
+console.log(userObj)
+console.log(userObj.fullName()) // John Smith
 
 /*
  * #3
