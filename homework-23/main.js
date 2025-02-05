@@ -1,92 +1,63 @@
-  console.log('#6. JavaScript homework example file')
+'use strict';
 
 /*
- * #1
- * Задача: Калькулятор калорійності продуктів через клас.
- * Завдання: Розробити модуль на JavaScript, який імплементує клас CalorieCalculator. Клас має використовувати Map для управління даними про калорійність продуктів. Необхідно реалізувати наступні функціональності:
- * Додавання продуктів: Метод addProduct приймає назву продукту та його калорійність, додаючи їх до колекції.
- * Отримання калорійності продукту: Метод getProductCalories повертає калорійність продукту за його назвою. Якщо продукт не знайдено, повертає рядок 'Product not found'.
- * Видалення продукту: Метод removeProduct видаляє продукт з колекції за назвою.
- *
- * Критерії перевірки:
- * Клас CalorieCalculator має бути реалізований з використанням ключового слова class.
- * Внутрішнє сховище продуктів має бути реалізоване за допомогою new Map().
- * Наявність методів addProduct, getProductCalories, та removeProduct.
- */
+#1
+Усі класи розкласти по своїм файлам і імпортувати! Наприклад, клас Human має бути в окремому файлі Human.js
 
-class CalorieCalculator {
-  constructor() {
-   this.products = new Map();
-  }
+a) Створити клас Людина.
+  Властивості:
+    імʼя;
+    стать.
+  Методи:
+    конструктор, який приймає два параметри: імʼя та стать.
 
-  addProduct(name, calories) {
-    this.products.set(name, calories)
-  }
+b) Створити клас Квартира.
+  Властивості:
+    конструктор не потрібен;
+    масив жителів, який при створенні пустий.
+  Методи:
+    додати жителя - метод повинен приймати екземпляр класу Людина, та додавати до масиву жителів.
 
-  getProductCalories(productName) {
-    if (this.products.has(productName)) {
-      return this.products.get(productName)
-    } else {
-      return 'Product not found'
-    }
-  }
+c) Створити клас Будинок.
 
-  removeProduct(productName) {
-    this.products.delete(productName)
-  }
-}
+  Властивості:
+    масив квартир, який при створенні пустий;
+    максимальна кількість квартир.
+  Методи:
+    конструктор, який приймає один параметр: максимальну кількість квартир;
+    додати квартиру - метод повинен приймати екземпляр класу Квартира, перевіряти, чи не буде кількість перевищувати максимальну кількість квартир, і якщо це так, додати квартиру, в іншому випадку виводить у консоль відповідне повідомлення.
 
-// Демонстрація використання
-const calorieCalculator = new CalorieCalculator()
-calorieCalculator.addProduct('Apple', 52)
-calorieCalculator.addProduct('Banana', 89)
+d) В якості демонстраціїї створити:
+  декілька екземплярів класу Людина;
+  декілька екземплярів класу Квартира;
+  додадити екземпляри класу Людина до екземплярів класу Квартира;
+  екземпляр класу Будинок;
+  додадити екземпляри класу Квартира до екземплярів класу Будинок.
+*/
 
-console.log(calorieCalculator.getProductCalories('Apple')) // 52
-console.log(calorieCalculator.getProductCalories('Banana')) // 89
+import {Human} from "./human.js";
+import {Apartment} from "./apartment.js";
+import {Building} from "./building.js";
 
-calorieCalculator.removeProduct('Apple')
-console.log(calorieCalculator.getProductCalories('Apple')) // Product not found
 
-/*
- * #2
- * Задача: Унікальні користувачі.
- * Завдання: Реалізувати модуль на JavaScript у формі класу UniqueUsernames, який використовує Set для збереження унікальних імен користувачів. Клас має надавати можливість:
- * Додавання імен користувачів: Метод addUser дозволяє додати нове ім'я до набору. Якщо ім'я вже існує, воно не буде додано повторно, зберігаючи унікальність імен у наборі.
- * Перевірка наявності імені: Метод exists перевіряє, чи існує задане ім'я серед збережених унікальних імен.
- * Отримання кількості унікальних імен: Метод count повертає кількість унікальних імен, збережених у наборі.
- *
- * Критерії перевірки:
- * Наявність методів addUser, exists, count у класі UniqueUsernames.
- * Використання конструкції class для створення класу UniqueUsernames.
- * Застосування new Set() для внутрішнього сховища імен користувачів у конструкторі класу.
- */
+const human1 = new Human('Олександр', 'чоловік');
+const human2 = new Human('Марія', 'жінка');
+const human3 = new Human('Іван', 'чоловік');
 
-class UniqueUsernames {
-  constructor() {
-    this.users = new Set();
-  }
+const apartment1 = new Apartment();
+const apartment2 = new Apartment();
 
-  addUser(username) {
-    this.users.add(username)
-  }
+apartment1.addResidents(human1);
+apartment2.addResidents(human2);
+apartment1.addResidents(human1);
 
-  exists(username) {
-    return this.users.has(username)
-  }
+const building = new Building(2);
+building.addApartment(apartment1);
+building.addApartment(apartment2);
 
-  count() {
-    return this.users.size
-  }
-}
+console.log(building);
 
-// Демонстрація використання
-const uniqueUsernames = new UniqueUsernames()
-uniqueUsernames.addUser('john_doe')
-uniqueUsernames.addUser('jane_doe')
-uniqueUsernames.addUser('john_doe') // Ця дія не змінить набір, оскільки 'john_doe' вже існує
 
-console.log(`Існує 'john_doe': ${uniqueUsernames.exists('john_doe')}`) // true
-console.log(`Кількість унікальних імен: ${uniqueUsernames.count()}`) // 2
 
-// Експорт для використання в тестах
-// export { CalorieCalculator, UniqueUsernames }
+
+
